@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Главная страница сервиса</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">QuizService</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">Как это работает</a></li>
+          <li class="nav-item"><a class="nav-link" href="#create">Создать квиз</a></li>
+          <li class="nav-item"><a class="nav-link" href="#login">Войти</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3">Добро пожаловать в QuizService</h1>
+      <p class="lead mb-4">Создавайте и играйте в увлекательные квизы прямо здесь. Быстро, просто и интересно!</p>
+      <a href="#create" class="btn btn-light btn-lg me-2">Создать квиз</a>
+      <a href="#login" class="btn btn-outline-light btn-lg">Войти</a>
+    </div>
+  </section>
+  <section id="how-it-works" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Как это работает</h2>
+      <div class="row text-center g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706l-1 1a.5.5 0 0 1-.708 0L13 2.207 14.793.414a.5.5 0 0 1 .709.537l-1 1zM13.5 3L12 1.5 4 9v2h2L14 5.5 13.5 3z" />
+                </svg>
+              </div>
+              <h5 class="card-title">Создайте квиз</h5>
+              <p class="card-text">Настройте вопросы и ответы в удобной форме за несколько минут.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-people" viewBox="0 0 16 16">
+                  <path d="M13 7a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM5 11a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm6 0a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
+                </svg>
+              </div>
+              <h5 class="card-title">Игры и участие</h5>
+              <p class="card-text">Присоединяйтесь к квизам и соревнуйтесь с друзьями прямо сейчас.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0d6efd" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                  <path d="M0 0v1h2v15H0v-1h2V0H0z... (замените на подходящий SVG)" />
+                </svg>
+              </div>
+              <h5 class="card-title">Аналитика</h5>
+              <p class="card-text">Получайте статистику по результатам и улучшайте свои знания.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="create" class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Готовы к началу?</h2>
+      <a href="/create" class="btn btn-primary btn-lg me-3">Создать квиз</a>
+      <a href="/login" class="btn btn-outline-primary btn-lg">Войти</a>
+    </div>
+  </section>
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container text-center">
+      <p class="mb-1">&copy; 2024 QuizService. Все права защищены.</p>
+      <p class="mb-0">Контакты: <a href="mailto:info@quizservice.com" class="text-white text-decoration-underline">info@quizservice.com</a></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% comment %}
+Шаблон главной страницы сервиса.
+Включает навигационную панель, hero-секцию, блок "Как это работает",
+кнопки для создания квиза и входа, а также футер с контактами.
+Подключает Bootstrap 5 через CDN и индивидуальный CSS из static/css/main.css.
+{% endcomment %}
