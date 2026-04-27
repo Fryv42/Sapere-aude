@@ -19,7 +19,6 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from .services import generate_session_csv
 
-logger = logging.getLogger(__name__) # [cite: 1]
 logger = logging.getLogger('app.views')
 
 

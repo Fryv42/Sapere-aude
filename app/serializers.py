@@ -4,8 +4,6 @@
 from rest_framework import serializers
 from .models import Quiz, Question, AnswerOption, QuizSession, Participant
 
-from .models import QuizSession, Participant
-
 class AnswerOptionSerializer(serializers.ModelSerializer):
     """Сериализатор для вариантов ответов."""
     class Meta:
@@ -122,20 +120,3 @@ class QuizSessionSerializer(serializers.ModelSerializer):
             'id', 'quiz', 'quiz_title', 'session_code',
             'started_at', 'ended_at', 'is_active', 'participants'
         ]
-
-
-class ParticipantSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Participant
-        fields = ['id', 'name', 'total_score'] # fields = ['id', 'nickname', 'score']
-
-# class QuizSessionSerializer(serializers.ModelSerializer):
-
-#     participants = ParticipantSerializer(many=True, read_only=True)
-
-#     class Meta:
-#         model = QuizSession
-#         fields = [
-#             'id', 'quiz', 'session_code', 'is_active', 
-#             'created_at', 'participants'
-#         ]
