@@ -2,11 +2,13 @@ import json
 import time
 from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import sync_to_async
-from app.models import QuizSession, Question, Participant, AnswerOption, ParticipantAnswer
 
 
 class QuizConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+        # Импортируем модели внутри метода, чтобы избежать проблем с инициализацией Django
+        from app.models import QuizSession
+        
         self.session_code = self.scope['url_route']['kwargs']['session_code']
         self.group_name = f'quiz_{self.session_code}'
         self.participant_id = None
@@ -35,6 +37,8 @@ class QuizConsumer(AsyncWebsocketConsumer):
             await self.send_time_sync()
 
     async def handle_join(self, data):
+        from app.models import QuizSession, Participant
+        
         participant_name = data.get('name')
         if not participant_name:
             await self.send(text_data=json.dumps({'error': 'Name required'}))
@@ -67,6 +71,8 @@ class QuizConsumer(AsyncWebsocketConsumer):
         await self.send_current_question()
 
     async def send_current_question(self):
+        from app.models import QuizSession, Question
+        
         session = await sync_to_async(QuizSession.objects.prefetch_related(
             'quiz__questions__answers'
         ).get)(session_code=self.session_code, is_active=True)
@@ -103,6 +109,8 @@ class QuizConsumer(AsyncWebsocketConsumer):
         await self.send_current_question()
 
     async def handle_submit_answer(self, data):
+        from app.models import Question, AnswerOption
+        
         if not self.participant_id:
             return
 
@@ -137,6 +145,8 @@ class QuizConsumer(AsyncWebsocketConsumer):
         }))
 
     def _save_participant_answer(self, participant_id, question_id, answer_id, is_correct):
+        from app.models import AnswerOption, ParticipantAnswer
+        
         answer = None
         if answer_id:
             answer = AnswerOption.objects.get(id=answer_id)
@@ -148,11 +158,15 @@ class QuizConsumer(AsyncWebsocketConsumer):
         )
 
     def _add_score(self, participant_id, points):
+        from app.models import Participant
+        
         participant = Participant.objects.get(id=participant_id)
         participant.total_score += points
         participant.save(update_fields=['total_score'])
 
     async def send_quiz_complete(self):
+        from app.models import Participant
+        
         participant = await sync_to_async(Participant.objects.get)(id=self.participant_id)
         await self.send(text_data=json.dumps({
             'type': 'quiz_complete',
