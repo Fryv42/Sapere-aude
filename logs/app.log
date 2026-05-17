@@ -1,0 +1,20 @@
+2026-04-27 18:05:22 | INFO     | django.utils.autoreload | Watching for file changes with StatReloader
+2026-04-27 18:05:25 | INFO     | app.views            | Health check requested
+2026-04-27 18:05:25 | INFO     | django.server        | "GET /api/v1/health/ HTTP/1.1" 200 15
+2026-04-27 18:05:28 | INFO     | django.server        | "GET /api/v1/version/ HTTP/1.1" 200 70
+2026-05-17 19:37:43 | INFO     | daphne.cli           | Starting server at tcp:port=8000:interface=0.0.0.0
+2026-05-17 19:37:43 | INFO     | daphne.server        | HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-05-17 19:37:43 | INFO     | daphne.server        | Configuring endpoint tcp:port=8000:interface=0.0.0.0
+2026-05-17 19:37:43 | INFO     | daphne.server        | Listening on TCP address 0.0.0.0:8000
+2026-05-17 19:37:46 | INFO     | daphne.server        | Killed 0 pending application instances
+2026-05-17 19:37:54 | INFO     | daphne.cli           | Starting server at tcp:port=8000:interface=0.0.0.0
+2026-05-17 19:37:54 | INFO     | daphne.server        | HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-05-17 19:37:54 | INFO     | daphne.server        | Configuring endpoint tcp:port=8000:interface=0.0.0.0
+2026-05-17 19:37:54 | INFO     | daphne.server        | Listening on TCP address 0.0.0.0:8000
+2026-05-17 19:37:58 | INFO     | app.views            | Health check requested
+2026-05-17 19:38:06 | INFO     | daphne.server        | Killed 0 pending application instances
+2026-05-17 19:43:37 | INFO     | daphne.cli           | Starting server at tcp:port=8000:interface=0.0.0.0
+2026-05-17 19:43:37 | INFO     | daphne.server        | HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-05-17 19:43:37 | INFO     | daphne.server        | Configuring endpoint tcp:port=8000:interface=0.0.0.0
+2026-05-17 19:43:37 | INFO     | daphne.server        | Listening on TCP address 0.0.0.0:8000
+2026-05-17 19:43:40 | INFO     | app.views            | Health check requested
